@@ -66,8 +66,8 @@ export interface SiteConfig {
   tagline: string;
   /** Optional location, shown near the hero. */
   location?: string;
-  /** Contact email (without the `mailto:` prefix). */
-  email: string;
+  /** Optional contact email. Omit to hide the email/contact buttons. */
+  email?: string;
   /** Bio paragraphs for the About section. */
   bio: string[];
   /** Social / contact links shown in the hero and footer. */

@@ -20,14 +20,16 @@ export function AboutSection() {
               <p key={paragraph.slice(0, 24)}>{paragraph}</p>
             ))}
           </div>
-          <div className="mt-8">
-            <Button asChild>
-              <a href={`mailto:${site.email}`}>
-                <Mail />
-                {site.email}
-              </a>
-            </Button>
-          </div>
+          {site.email ? (
+            <div className="mt-8">
+              <Button asChild>
+                <a href={`mailto:${site.email}`}>
+                  <Mail />
+                  {site.email}
+                </a>
+              </Button>
+            </div>
+          ) : null}
         </div>
       </div>
     </section>

@@ -40,12 +40,14 @@ export function Hero() {
               <ArrowDown />
             </a>
           </Button>
-          <Button asChild size="lg" variant="outline">
-            <a href={`mailto:${site.email}`}>
-              <Mail />
-              Get in touch
-            </a>
-          </Button>
+          {site.email ? (
+            <Button asChild size="lg" variant="outline">
+              <a href={`mailto:${site.email}`}>
+                <Mail />
+                Get in touch
+              </a>
+            </Button>
+          ) : null}
           {site.resumeUrl ? (
             <Button asChild size="lg" variant="ghost">
               <a href={site.resumeUrl} target="_blank" rel="noreferrer">

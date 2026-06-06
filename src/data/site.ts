@@ -9,8 +9,7 @@ export const site: SiteConfig = {
   role: "Software Engineer",
   tagline:
     "I build thoughtful, fast web applications — from the data model to the last pixel.",
-  location: "Palo Alto, CA",
-  email: "binglis1997@gmail.com",
+  // `location` and `email` are optional — omitted to keep them off the public site.
   bio: [
     "I'm a software engineer who enjoys turning fuzzy problems into products people actually like to use. I care about clean architecture, good typing, and interfaces that feel effortless.",
     "Lately I’ve been working with React, TypeScript, Python, Node — but I’m happy anywhere from the database to the design system. When I’m not shipping, you’ll find me practicing guitar, lifting weights, or playing with my cats.",
@@ -57,7 +56,7 @@ export const resources: Resource[] = [
   {
     title: "Blog",
     description:
-      "Essays and notes on software, design, and the things I’m learning.",
+      "Long form content about software, design, and the things I’m learning.",
     href: "https://code-after-degree.hashnode.dev/",
   },
 ];

@@ -7,67 +7,69 @@
  */
 
 export type SocialPlatform =
-  | 'github'
-  | 'linkedin'
-  | 'twitter'
-  | 'bluesky'
-  | 'email'
-  | 'website'
+  | "github"
+  | "linkedin"
+  | "twitter"
+  | "bluesky"
+  | "email"
+  | "website";
 
 export interface SocialLink {
   /** Determines which icon is rendered. */
-  platform: SocialPlatform
+  platform: SocialPlatform;
   /** Accessible label, e.g. "GitHub" or "Email". */
-  label: string
+  label: string;
   /** Full URL. For email use a `mailto:` link. */
-  href: string
+  href: string;
 }
 
 export interface Project {
   /** Display name of the project. */
-  name: string
+  name: string;
   /** One or two sentence summary. */
-  description: string
+  description: string;
   /** Tech stack / topic tags rendered as badges. */
-  tags: string[]
+  tags: string[];
   /** Link to the source code. Omit to hide the "View on GitHub" button. */
-  repoUrl?: string
+  repoUrl?: string;
   /** Optional link to a live deployment. */
-  demoUrl?: string
+  demoUrl?: string;
   /** Featured projects are visually highlighted and sorted first. */
-  featured?: boolean
+  deployUrl?: string;
+  /** Link to the live application */
+  featured?: boolean;
 }
 
 export interface Resource {
   /** Short title for the link. */
-  title: string
+  title: string;
   /** One-line description of what's behind the link. */
-  description: string
+  description: string;
   /** Destination URL. */
-  href: string
+  href: string;
 }
 
 export interface NavItem {
-  label: string
+  label: string;
   /** In-page anchor, e.g. "#projects". */
-  href: string
+  href: string;
 }
 
 export interface SiteConfig {
   /** Your name, shown in the hero and header. */
-  name: string
+  name: string;
   /** Short role, e.g. "Software Engineer". */
-  role: string
+  role: string;
   /** Hero tagline — a sentence about what you do. */
-  tagline: string
+  tagline: string;
   /** Optional location, shown near the hero. */
-  location?: string
+  location?: string;
   /** Contact email (without the `mailto:` prefix). */
-  email: string
+  email: string;
   /** Bio paragraphs for the About section. */
-  bio: string[]
+  bio: string[];
   /** Social / contact links shown in the hero and footer. */
-  socials: SocialLink[]
+  socials: SocialLink[];
   /** Optional link to a hosted resume/CV (PDF). */
-  resumeUrl?: string
+  resumeUrl?: string;
 }

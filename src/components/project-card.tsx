@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Info, Play } from "lucide-react";
 
 import { GithubIcon } from "@/components/brand-icons";
 import { Badge } from "@/components/ui/badge";
@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import type { Project } from "@/data/types";
+import { cn } from "@/lib/utils";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
@@ -42,29 +43,38 @@ export function ProjectCard({ project }: { project: Project }) {
         </ul>
       </CardContent>
 
-      {project.repoUrl || project.demoUrl ? (
-        <CardFooter className="mt-6 gap-2">
+      {project.note ? (
+        <p className="mt-5 flex items-start gap-1.5 px-6 text-xs text-muted-foreground">
+          <Info className="mt-px size-3.5 shrink-0" aria-hidden="true" />
+          <span>{project.note}</span>
+        </p>
+      ) : null}
+
+      {project.deployUrl || project.demoUrl || project.repoUrl ? (
+        <CardFooter
+          className={cn(project.note ? "mt-4" : "mt-6", "flex-wrap gap-2")}
+        >
+          {project.deployUrl ? (
+            <Button asChild size="sm">
+              <a href={project.deployUrl} target="_blank" rel="noreferrer">
+                Live app
+                <ArrowUpRight />
+              </a>
+            </Button>
+          ) : null}
+          {project.demoUrl ? (
+            <Button asChild variant="outline" size="sm">
+              <a href={project.demoUrl} target="_blank" rel="noreferrer">
+                <Play className="size-4" />
+                Watch demo
+              </a>
+            </Button>
+          ) : null}
           {project.repoUrl ? (
             <Button asChild variant="outline" size="sm">
               <a href={project.repoUrl} target="_blank" rel="noreferrer">
                 <GithubIcon className="size-4" />
                 View on GitHub
-              </a>
-            </Button>
-          ) : null}
-          {project.demoUrl ? (
-            <Button asChild size="sm">
-              <a href={project.demoUrl} target="_blank" rel="noreferrer">
-                Live demo
-                <ArrowUpRight />
-              </a>
-            </Button>
-          ) : null}
-          {project.deployUrl ? (
-            <Button asChild size="sm">
-              <a href={project.demoUrl} target="_blank" rel="noreferrer">
-                Deployed application
-                <ArrowUpRight />
               </a>
             </Button>
           ) : null}

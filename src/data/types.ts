@@ -32,11 +32,13 @@ export interface Project {
   tags: string[];
   /** Link to the source code. Omit to hide the "View on GitHub" button. */
   repoUrl?: string;
-  /** Optional link to a live deployment. */
+  /** Optional link to a video demo, e.g. a YouTube walkthrough. */
   demoUrl?: string;
-  /** Featured projects are visually highlighted and sorted first. */
+  /** Optional link to the live, deployed application. */
   deployUrl?: string;
-  /** Link to the live application */
+  /** Optional caveat shown as a small caption, e.g. a cold-start warning. */
+  note?: string;
+  /** Featured projects are visually highlighted and sorted first. */
   featured?: boolean;
 }
 

@@ -1,16 +1,16 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight } from "lucide-react";
 
-import { GithubIcon } from '@/components/brand-icons'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
+import { GithubIcon } from "@/components/brand-icons";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card'
-import type { Project } from '@/data/types'
+} from "@/components/ui/card";
+import type { Project } from "@/data/types";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
@@ -60,8 +60,16 @@ export function ProjectCard({ project }: { project: Project }) {
               </a>
             </Button>
           ) : null}
+          {project.deployUrl ? (
+            <Button asChild size="sm">
+              <a href={project.demoUrl} target="_blank" rel="noreferrer">
+                Deployed application
+                <ArrowUpRight />
+              </a>
+            </Button>
+          ) : null}
         </CardFooter>
       ) : null}
     </Card>
-  )
+  );
 }

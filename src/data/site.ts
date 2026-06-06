@@ -12,7 +12,7 @@ export const site: SiteConfig = {
   // `location` and `email` are optional — omitted to keep them off the public site.
   bio: [
     "I'm a software engineer who enjoys turning fuzzy problems into products people actually like to use. I care about clean architecture, good typing, and interfaces that feel effortless.",
-    "Lately I’ve been working with React, TypeScript, Python, Node — but I’m happy anywhere from the database to the design system. When I’m not shipping, you’ll find me practicing guitar, lifting weights, or playing with my cats.",
+    "Lately I’ve been working with React, TypeScript, Python, Node — but I’m happy anywhere from the database to the system design. When I’m not shipping, you’ll find me practicing guitar, lifting weights, or playing with my cats.",
   ],
   // The hero and footer render every link in this list. Reorder or remove
   // entries freely; `platform` controls which icon shows.
@@ -35,7 +35,7 @@ export const site: SiteConfig = {
     // {
     //   platform: "email",
     //   label: "Email",
-    //   href: "binglis1997@gmail.com",
+    //   href: "email@example.com",
     // },
   ],
   // Optional: link to a hosted PDF resume. Set to undefined to hide the button.

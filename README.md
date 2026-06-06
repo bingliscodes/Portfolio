@@ -106,13 +106,20 @@ git push -u origin main
 
 ### Step 3 — Add the custom domain in Vercel
 
-1. In your project: **Settings → Domains**.
-2. Add `bingliscodes.com` **and** `www.bingliscodes.com`. Vercel will pick one
-   as primary and 308-redirect the other (a common choice is to serve the apex
-   `bingliscodes.com` and redirect `www` → apex).
-3. Vercel then shows the exact DNS records to create. Use the values Vercel
-   displays — they occasionally change, so treat the table below as the typical
-   case and Vercel's dashboard as the source of truth.
+You must explicitly add the domain here — it won't appear on its own. The
+`*.vercel.app` URL is auto-generated for every project and is separate from your
+custom domain.
+
+1. In your project: **Settings → Domains**. (You'll already see the generated
+   `*.vercel.app` entry — that's expected.)
+2. In the **Add Domain** box, type `bingliscodes.com` and click **Add**. When
+   prompted, also add `www.bingliscodes.com`. Vercel picks one as primary and
+   308-redirects the other (recommended: serve the apex `bingliscodes.com` and
+   redirect `www` → apex).
+3. Each domain now shows **"Invalid Configuration"** along with the exact DNS
+   records to create. Use the values Vercel displays — they occasionally change,
+   so treat the table below as the typical case and Vercel's dashboard as the
+   source of truth.
 
 ### Step 4 — Set DNS records at your registrar
 
@@ -136,12 +143,41 @@ Tips:
   registrar's **nameservers** to Vercel's (shown in the dashboard); then Vercel
   manages all records for you.
 
+#### Squarespace Domains (formerly Google Domains)
+
+This domain is managed by Squarespace (where Google Domains migrated). To set
+the records:
+
+1. Go to [account.squarespace.com/domains](https://account.squarespace.com/domains)
+   and click **bingliscodes.com**.
+2. Open **DNS → DNS Settings** and scroll to **Custom Records**.
+3. Add the two records:
+   - `@` · type `A` · data `76.76.21.21`
+   - `www` · type `CNAME` · data `cname.vercel-dns.com`
+4. **Delete any conflicting Custom Records** first — Squarespace ships default
+   parking records, typically an `A` record on `@` pointing to a Squarespace IP
+   (e.g. `198.185.159.x`) and a `www` `CNAME` to `ext-cust.squarespace.com` or
+   `*.squarespace-dns.com`. Leave `MX`/`TXT` records alone.
+5. The locked **"Squarespace Defaults"** group can't be edited — that's fine, it
+   only applies when the domain points at a Squarespace site. Your **Custom
+   Records** are authoritative here.
+
 ### Step 5 — Wait for DNS + SSL
 
 DNS changes can take anywhere from a few minutes to a few hours to propagate.
 Once Vercel detects the records, it provisions an SSL certificate automatically
 and your site goes live at `https://bingliscodes.com`. The domain status in
 **Settings → Domains** will turn green ("Valid Configuration") when it's ready.
+
+You can check propagation yourself:
+
+```bash
+dig bingliscodes.com +short        # expect 76.76.21.21
+dig www.bingliscodes.com +short    # expect cname.vercel-dns.com
+```
+
+If Vercel still shows "Invalid Configuration" after ~30 minutes, it's almost
+always a leftover Squarespace default record (see Step 4) that needs deleting.
 
 ## Project structure
 

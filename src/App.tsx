@@ -1,5 +1,6 @@
 import { AboutSection } from '@/components/about-section'
 import { Hero } from '@/components/hero'
+import { Oneko } from '@/components/oneko'
 import { ProjectsSection } from '@/components/projects-section'
 import { ResourcesSection } from '@/components/resources-section'
 import { SiteFooter } from '@/components/site-footer'
@@ -25,6 +26,8 @@ function App() {
       </main>
 
       <SiteFooter />
+
+      <Oneko />
     </div>
   )
 }

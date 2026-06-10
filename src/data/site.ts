@@ -59,4 +59,9 @@ export const resources: Resource[] = [
       "Long form content about software, design, and the things I’m learning.",
     href: "https://code-after-degree.hashnode.dev/",
   },
+  {
+    title: "Featured Blog Post",
+    description: "Check out my most recent article!",
+    href: "https://code-after-degree.hashnode.dev/developing-as-a-developer-introduction",
+  },
 ];
